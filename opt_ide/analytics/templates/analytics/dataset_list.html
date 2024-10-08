@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dataset List</title>
+</head>
+<body>
+    <h1>Datasets for Project: {{ project.name }}</h1>
+    <ul>
+        {% for dataset in datasets %}
+            <li>
+                {{ dataset.file.name }} - Uploaded at: {{ dataset.uploaded_at }}
+                <a href="{% url 'dataset_view' dataset.id %}">View Contents</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'dataset_upload' project.id %}">Upload New Dataset</a>
+    <br>
+    <a href="/analytics"><button type="button">Home</button></a>
+</body>
+</html>

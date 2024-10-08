@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Dataset</title>
+</head>
+<body>
+    <h1>Dataset: {{ dataset.file.name }}</h1>
+    <div>
+        {{ table_html|safe }}
+    </div>
+    <a href="{% url 'dataset_list' dataset.project.id %}">Back to Dataset List</a>
+    <br>
+    <a href="/analytics"><button type="button">Home</button></a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project List</title>
+</head>
+<body>
+    <h1>Projects</h1>
+    <a href="{% url 'project_create' %}">Create New Project</a>
+    <ul>
+        {% for project in projects %}
+            <li>
+                {{ project.name }} - {{ project.description }}
+                <a href="{% url 'workflow_create' project.id %}">Add Workflow</a> |
+<a href="{% url 'dataset_upload' project.id %}">Upload Dataset</a> |
+<a href="{% url 'dataset_list' project.id %}">View Datasets</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/analytics"><button type="button">Home</button></a>
+</body>
+</html>
